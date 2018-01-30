@@ -8,13 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CameraBufferDelegate {
     
     let model = DigitPredictionModel()
-
+    
+    var cameraBuffer: CameraBuffer!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        cameraBuffer = CameraBuffer()
+        cameraBuffer.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +28,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func captured(image: UIImage) {
+        imageView.image = image
+    }
 }
 

@@ -13,6 +13,7 @@
 		52B89A9C201FAFAD00665E85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B89A9B201FAFAD00665E85 /* Assets.xcassets */; };
 		52B89A9F201FAFAD00665E85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B89A9D201FAFAD00665E85 /* LaunchScreen.storyboard */; };
 		52B89AA7201FDA6300665E85 /* DigitPredictionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 52B89AA6201FDA6200665E85 /* DigitPredictionModel.mlmodel */; };
+		52B89AA920212DE900665E85 /* CameraBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B89AA820212DE900665E85 /* CameraBuffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		52B89A9E201FAFAD00665E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52B89AA0201FAFAD00665E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B89AA6201FDA6200665E85 /* DigitPredictionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DigitPredictionModel.mlmodel; sourceTree = "<group>"; };
+		52B89AA820212DE900665E85 /* CameraBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				52B89A9B201FAFAD00665E85 /* Assets.xcassets */,
 				52B89A9D201FAFAD00665E85 /* LaunchScreen.storyboard */,
 				52B89AA0201FAFAD00665E85 /* Info.plist */,
+				52B89AA820212DE900665E85 /* CameraBuffer.swift */,
 			);
 			path = DigitPredictor;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B89AA920212DE900665E85 /* CameraBuffer.swift in Sources */,
 				52B89AA7201FDA6300665E85 /* DigitPredictionModel.mlmodel in Sources */,
 				52B89A97201FAFAD00665E85 /* ViewController.swift in Sources */,
 				52B89A95201FAFAC00665E85 /* AppDelegate.swift in Sources */,
@@ -285,7 +289,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aprof.ECE1780.DigitPredictor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -300,7 +304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aprof.ECE1780.DigitPredictor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
