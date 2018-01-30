@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let model = DigitPredictionModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,6 +12,7 @@
 		52B89A9A201FAFAD00665E85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B89A98201FAFAD00665E85 /* Main.storyboard */; };
 		52B89A9C201FAFAD00665E85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B89A9B201FAFAD00665E85 /* Assets.xcassets */; };
 		52B89A9F201FAFAD00665E85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B89A9D201FAFAD00665E85 /* LaunchScreen.storyboard */; };
+		52B89AA7201FDA6300665E85 /* DigitPredictionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 52B89AA6201FDA6200665E85 /* DigitPredictionModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		52B89A9B201FAFAD00665E85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B89A9E201FAFAD00665E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52B89AA0201FAFAD00665E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B89AA6201FDA6200665E85 /* DigitPredictionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DigitPredictionModel.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		52B89A88201FAFAC00665E85 = {
 			isa = PBXGroup;
 			children = (
+				52B89AA6201FDA6200665E85 /* DigitPredictionModel.mlmodel */,
 				52B89A93201FAFAC00665E85 /* DigitPredictor */,
 				52B89A92201FAFAC00665E85 /* Products */,
 			);
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B89AA7201FDA6300665E85 /* DigitPredictionModel.mlmodel in Sources */,
 				52B89A97201FAFAD00665E85 /* ViewController.swift in Sources */,
 				52B89A95201FAFAC00665E85 /* AppDelegate.swift in Sources */,
 			);
@@ -275,9 +279,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7FUM87XXLZ;
 				INFOPLIST_FILE = DigitPredictor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ECE1780.DigitPredictor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aprof.ECE1780.DigitPredictor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -289,9 +294,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7FUM87XXLZ;
 				INFOPLIST_FILE = DigitPredictor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ECE1780.DigitPredictor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aprof.ECE1780.DigitPredictor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
