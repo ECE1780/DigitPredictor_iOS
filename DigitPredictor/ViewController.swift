@@ -11,13 +11,13 @@ import CoreML
 
 class ViewController: UIViewController, CameraBufferDelegate {
     
-    let model = DigitPredictionModel()
+    let model = DigitPredictionModel()      // Automatically created from the .mlmodel file
     
-    var cameraBuffer: CameraBuffer!
+    var cameraBuffer: CameraBuffer!         // Captures the camera input and provides a callback
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!  // To display the camera input
     
-    @IBOutlet weak var predictedDigitLabel: UILabel!
+    @IBOutlet weak var predictedDigitLabel: UILabel!    // To display the predicted digit
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +32,26 @@ class ViewController: UIViewController, CameraBufferDelegate {
     }
 
     func captured(image: UIImage) {
-        imageView.image = image
+        imageView.image = image     // Show the current frame on the screen
         
+        // Predict the digit
+        
+        // Crop to the largest square in the centre of the screen
         let h = image.size.height
         let w = image.size.width
         let cropRegion = CGRect(x: 0, y: (h-w)/2, width: w, height: w)
         let imageData = image.cgImage!.cropping(to: cropRegion)!
         
+        // Resize image to 28x28
+        // Hard coded 14x14 because running on my iPhone will
+        // increase resolution by a factor of 2.
+        // You'll probably want to do this in a cleaner way with a device list for your apps.
         let imageResized = UIImage(cgImage: imageData).imageWithSize(size: CGSize(width: 14, height: 14))
         
+        // Get pixel values of the UIImage (all in a 1-D double array 0.0-1.0, row-major order)
         let rgbs = imageResized.getRGBs()
         
+        // Initialize and populate the MultiArray required by the CoreML model
         guard let input = try? MLMultiArray(shape: [1, 28, 28], dataType: .double) else {
             return
         }
@@ -52,18 +61,20 @@ class ViewController: UIViewController, CameraBufferDelegate {
                 let r = rgbs[offset]
                 let g = rgbs[offset + 1]
                 let b = rgbs[offset + 2]
-                let pixelIntensity = 1.0 - (r + g + b) / 3
+                let pixelIntensity = 1.0 - (r + g + b) / 3  // grey-scale + invert
                 
                 let index = [NSNumber(value: 0), NSNumber(value: y), NSNumber(value: x)]
                 input[index] = NSNumber(value: pixelIntensity)
             }
         }
         
+        // Get the probabilities of each digit from the model
         guard let digitProbabilities = try? model.prediction(image__0: input).prediction__0 else {
             print("Something went wrong predicting the output")
             return
         }
-
+        
+        // Find the digit with the highest probability
         var predictedDigit = 0
         var highestProbability = 0.0
         for i in 0..<10 {
@@ -72,10 +83,17 @@ class ViewController: UIViewController, CameraBufferDelegate {
                 predictedDigit = i
             }
         }
+        
+        // Display the predicted digit
         self.predictedDigitLabel.text = String(predictedDigit)
     }
 }
 
+// Extension functions for resizing and getting the pixel rgb values
+//
+// Apple has made simple operations like these very convoluted.
+// You can make use of these functions in your own project, or
+// look into https://github.com/hollance/CoreMLHelpers
 extension UIImage
 {
     func imageWithSize(size:CGSize) -> UIImage

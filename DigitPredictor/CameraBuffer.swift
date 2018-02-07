@@ -1,4 +1,5 @@
 // Borrowed from https://sriraghu.com/2017/05/22/computer-vision-in-ios-core-camera/
+// Can also look into the library GPUImage https://github.com/BradLarson/GPUImage
 
 import UIKit
 import AVFoundation
